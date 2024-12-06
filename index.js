@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 
 // Function to create the prompt for the question-answering task
 const createPrompt = (question, context) => {
-  return Write a program using loops or recursion to solve: question: ${question} context: ${context};
+  return `Write a program using loops or recursion to solve: question: ${question} context: ${context}`;
 };
 
 // Endpoint to handle medical queries
@@ -40,8 +40,8 @@ app.post("/askmedical", async (req, res) => {
     }
 
     // Log the received inputs for debugging
-    console.log(Question: ${question});
-    console.log(Context: ${context});
+    console.log(`Question: ${question}`);
+    console.log(`Context: ${context}`);
 
     // Create the prompt using the updated function
     const prompt = createPrompt(question, context);
@@ -75,5 +75,5 @@ app.post("/askmedical", async (req, res) => {
 // Start the Server
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log(Medical Query API server is listening on port ${PORT});
+  console.log(`Medical Query API server is listening on port ${PORT}`);
 });
